@@ -7,10 +7,10 @@ require "returnJson.php";
  *
  * @param string prefecture_no  1~47のいずれか
  * @return array
- *          string 結果   成功,失敗
+ *          string result   success, failure
  *          成功時
- *              string 都道府県番号
- *              string 都道府県名
+ *              string prefectureNo
+ *              string prefectureName
  *          失敗時
  *              string message  エラーメッセージ
  */
@@ -178,14 +178,14 @@ try {
   }
 
     $result = [
-        '結果' => '成功',
-        '都道府県番号' => $prefecture_no,
-        '都道府県名' => $prefecture_name
+        'result' => 'success',
+        'prefectureNo' => $prefecture_no,
+        'prefectureName' => $prefecture_name
     ];
 
 } catch (Exception $e) {
     $result = [
-        '結果' => '失敗',
+        'result' => 'failure',
         'message' => $e->getMessage()
     ];
 }
